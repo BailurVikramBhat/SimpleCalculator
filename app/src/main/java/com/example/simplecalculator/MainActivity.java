@@ -113,7 +113,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             updateAnswer.append("-");
         }
         else if(idGotFrommView == R.id.multiply) {
-            updateAnswer.append("*");
+            updateAnswer.append("x");
         }
         else if(idGotFrommView == R.id.divide) {
             updateAnswer.append("/");
@@ -135,11 +135,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             * */
 
+
             String expression = updateAnswer.getText().toString();
             if(expression.isEmpty()) {
                 updateAnswer.setText("");
             }
             else {
+
+                expression = expression.replaceAll("x", "*");
+
                 updateAnswer.setText(Integer.toString(evaluate(expression)));
             }
         }
