@@ -132,9 +132,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             /*
 
             TODO: Handle the case where input can be empty and operators are there
+
             * */
+
             String expression = updateAnswer.getText().toString();
-            updateAnswer.setText(Integer.toString(evaluate(expression)));
+            if(expression.isEmpty()) {
+                updateAnswer.setText("");
+            }
+            else {
+                updateAnswer.setText(Integer.toString(evaluate(expression)));
+            }
         }
 
 
