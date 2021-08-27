@@ -13,11 +13,12 @@
 
     <TextView
         android:layout_width="410dp"
-        android:layout_height="230dp"
+        android:layout_height="130dp"
         android:fontFamily="serif"
         android:text=""
         android:textAlignment="center"
         android:textSize="40dp" />
+
 
     <TextView
         android:id="@+id/editText"
@@ -27,11 +28,21 @@
         android:layout_margin="20dp"
         android:gravity="end"
         android:fontFamily="serif"
-        android:cursorVisible="true"
         android:textColor="@color/black"
         android:background="@null"
 
-        android:hint="@string/hint_text"
+        android:textSize="40dp" />
+
+    <TextView
+        android:id="@+id/answer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_margin="20dp"
+        android:gravity="end"
+        android:text=""
+        android:fontFamily="serif"
+        android:textColor="@color/black"
         android:textSize="40dp" />
 
     <LinearLayout

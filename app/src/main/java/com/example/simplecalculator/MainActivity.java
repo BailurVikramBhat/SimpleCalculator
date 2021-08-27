@@ -1,5 +1,6 @@
 package com.example.simplecalculator;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -19,6 +20,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button[] operations;
 
     TextView updateAnswer;
+
+    TextView answer;
+
+
+
 
 
     @Override
@@ -61,6 +67,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         updateAnswer = findViewById(R.id.editText);
+
+        answer = findViewById(R.id.answer);
+
 
 
 
@@ -107,48 +116,80 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             updateAnswer.append(".");
         }
         else if(idGotFrommView == R.id.add) {
+            answer.setText("");
             updateAnswer.append("+");
         }
         else if(idGotFrommView == R.id.subtract) {
+            answer.setText("");
             updateAnswer.append("-");
         }
         else if(idGotFrommView == R.id.multiply) {
+            answer.setText("");
             updateAnswer.append("x");
         }
         else if(idGotFrommView == R.id.divide) {
+            answer.setText("");
             updateAnswer.append("/");
         }
         else if(idGotFrommView == R.id.clear) {
+            answer.setText("");
             updateAnswer.setText("");
         }
         else if(idGotFrommView == R.id.delete) {
-            String cache = updateAnswer.getText().toString();
-            updateAnswer.setText(cache.replaceFirst(".$", ""));
+            if(answer.getText().toString().equals("")) {
+                String cache = updateAnswer.getText().toString();
+                updateAnswer.setText(cache.replaceFirst(".$", ""));
+            }
+            else {
+                String cache = answer.getText().toString();
+                answer.setText(cache.replaceFirst(".$", ""));
+            }
+
         }
         else if(idGotFrommView == R.id.modulus) {
             updateAnswer.append("%");
         }
         else if(idGotFrommView == R.id.equalTo) {
-            /*
-
-            TODO: Handle the case where input can be empty and operators are there
-
-            * */
 
 
             String expression = updateAnswer.getText().toString();
-            if(expression.isEmpty()) {
+            if(expression.isEmpty() || expression.startsWith("invalid")) {
+
                 updateAnswer.setText("");
             }
             else {
 
-                expression = expression.replaceAll("x", "*");
 
-                updateAnswer.setText(Integer.toString(evaluate(expression)));
+                expression = expression.replaceAll("x", "*");
+                updateAnswer.setText("");
+                if(isValid(expression)) {
+                    answer.setTextColor(Color.parseColor("#00008B"));
+                    answer.setText(Integer.toString(evaluate(expression)));
+                }
+                else {
+                    answer.setTextColor(Color.parseColor("#FF0000"));
+                    answer.setText("invalid");
+                }
+
             }
         }
 
 
+
+
+    }
+
+    public static boolean isValid(String s) {
+
+        char[] tokens = s.toCharArray();
+
+        String storage = "+-*/%";
+        for(int i=0; i<tokens.length-1; i++) {
+            if(storage.contains(Character.toString(tokens[i])) && storage.contains(Character.toString(tokens[i+1]))) {
+                return false;
+            }
+        }
+        return true;
 
 
     }
