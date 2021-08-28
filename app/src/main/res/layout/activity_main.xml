@@ -28,12 +28,12 @@
         android:layout_height="wrap_content"
         android:layout_gravity="end"
         android:layout_margin="20sp"
-        android:gravity="end"
-        android:fontFamily="serif"
-        android:textColor="@color/black"
-        android:maxLines="1"
-        android:ellipsize="start"
         android:background="@null"
+        android:ellipsize="start"
+        android:fontFamily="monospace"
+        android:gravity="end"
+        android:maxLines="1"
+        android:textColor="@color/black"
 
         android:textSize="40sp" />
 
@@ -43,9 +43,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="end"
         android:layout_margin="20sp"
+        android:fontFamily="monospace"
         android:gravity="end"
         android:text=""
-        android:fontFamily="serif"
         android:textColor="@color/black"
         android:textSize="40sp" />
 
@@ -91,7 +91,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="5sp"
             android:layout_weight="1"
-            android:text="b"
+            android:text="\u232B"
             android:textSize="40sp"
             style="?android:attr/buttonBarButtonStyle" />
 

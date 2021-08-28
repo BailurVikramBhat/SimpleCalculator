@@ -19,9 +19,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     Button[] operations;
 
+
     TextView updateAnswer;
 
     TextView answer;
+
+    boolean equalButtonPressed;
 
 
 
@@ -70,6 +73,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         answer = findViewById(R.id.answer);
 
+        equalButtonPressed = false;
+
 
 
 
@@ -80,62 +85,152 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         int idGotFrommView = view.getId();
 
         if(idGotFrommView == R.id.button0) {
+            if(equalButtonPressed) {
+                updateAnswer.setText(answer.getText().toString());
+                answer.setText("");
+            }
+            equalButtonPressed = false;
             updateAnswer.append("0");
         }
         else if(idGotFrommView == R.id.button1) {
+            if(equalButtonPressed) {
+                updateAnswer.setText(answer.getText().toString());
+                answer.setText("");
+            }
+            equalButtonPressed = false;
             updateAnswer.append("1");
         }
         else if(idGotFrommView == R.id.button2) {
+            if(equalButtonPressed) {
+                updateAnswer.setText(answer.getText().toString());
+                answer.setText("");
+            }
+            equalButtonPressed = false;
             updateAnswer.append("2");
         }
         else if(idGotFrommView == R.id.button3) {
+            if(equalButtonPressed) {
+                updateAnswer.setText(answer.getText().toString());
+                answer.setText("");
+            }
+            equalButtonPressed = false;
             updateAnswer.append("3");
         }
         else if(idGotFrommView == R.id.button4) {
+            if(equalButtonPressed) {
+                updateAnswer.setText(answer.getText().toString());
+                answer.setText("");
+            }
+            equalButtonPressed = false;
             updateAnswer.append("4");
         }
         else if(idGotFrommView == R.id.button5) {
+            if(equalButtonPressed) {
+                updateAnswer.setText(answer.getText().toString());
+                answer.setText("");
+            }
+            equalButtonPressed = false;
             updateAnswer.append("5");
         }
         else if(idGotFrommView == R.id.button6) {
+            if(equalButtonPressed) {
+                updateAnswer.setText(answer.getText().toString());
+                answer.setText("");
+            }
+            equalButtonPressed = false;
             updateAnswer.append("6");
         }
         else if(idGotFrommView == R.id.button7) {
+            if(equalButtonPressed) {
+                updateAnswer.setText(answer.getText().toString());
+                answer.setText("");
+            }
+            equalButtonPressed = false;
             updateAnswer.append("7");
         }
         else if(idGotFrommView == R.id.button8) {
+            if(equalButtonPressed) {
+                updateAnswer.setText(answer.getText().toString());
+                answer.setText("");
+            }
+            equalButtonPressed = false;
             updateAnswer.append("8");
         }
         else if(idGotFrommView == R.id.button9) {
+            if(equalButtonPressed) {
+                updateAnswer.setText(answer.getText().toString());
+                answer.setText("");
+            }
+            equalButtonPressed = false;
             updateAnswer.append("9");
         }
         else if(idGotFrommView == R.id.button00) {
+            if(equalButtonPressed) {
+                updateAnswer.setText(answer.getText().toString());
+                answer.setText("");
+            }
+            equalButtonPressed = false;
             updateAnswer.append("00");
         }
         else if(idGotFrommView == R.id.buttonPeriod) {
+            if(equalButtonPressed) {
+                updateAnswer.setText(answer.getText().toString());
+                answer.setText("");
+            }
+            equalButtonPressed = false;
             updateAnswer.append(".");
         }
         else if(idGotFrommView == R.id.add) {
+            if(equalButtonPressed) {
+                updateAnswer.setText(answer.getText().toString());
+                answer.setText("");
+            }
+            equalButtonPressed = false;
             answer.setText("");
             updateAnswer.append("+");
         }
         else if(idGotFrommView == R.id.subtract) {
+            if(equalButtonPressed) {
+                updateAnswer.setText(answer.getText().toString());
+                answer.setText("");
+            }
+            equalButtonPressed = false;
             answer.setText("");
             updateAnswer.append("-");
         }
         else if(idGotFrommView == R.id.multiply) {
+            if(equalButtonPressed) {
+                updateAnswer.setText(answer.getText().toString());
+                answer.setText("");
+            }
+            equalButtonPressed = false;
             answer.setText("");
-            updateAnswer.append("x");
+            updateAnswer.append("\u00D7");
         }
         else if(idGotFrommView == R.id.divide) {
+            if(equalButtonPressed) {
+                updateAnswer.setText(answer.getText().toString());
+                answer.setText("");
+            }
+            equalButtonPressed = false;
             answer.setText("");
-            updateAnswer.append("/");
+            updateAnswer.append("\u00F7");
         }
         else if(idGotFrommView == R.id.clear) {
+            if(equalButtonPressed) {
+                updateAnswer.setText(answer.getText().toString());
+                answer.setText("");
+            }
+            equalButtonPressed = false;
             answer.setText("");
             updateAnswer.setText("");
         }
         else if(idGotFrommView == R.id.delete) {
+            if(equalButtonPressed) {
+                updateAnswer.setText(answer.getText().toString());
+                answer.setText("");
+            }
+            equalButtonPressed = false;
             if(answer.getText().toString().equals("")) {
                 String cache = updateAnswer.getText().toString();
                 updateAnswer.setText(cache.replaceFirst(".$", ""));
@@ -147,9 +242,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         }
         else if(idGotFrommView == R.id.modulus) {
+            if(equalButtonPressed) {
+                updateAnswer.setText(answer.getText().toString());
+                answer.setText("");
+            }
+            equalButtonPressed = false;
             updateAnswer.append("%");
         }
         else if(idGotFrommView == R.id.equalTo) {
+            equalButtonPressed = true;
 
 
             String expression = updateAnswer.getText().toString();
@@ -160,7 +261,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             else {
 
 
-                expression = expression.replaceAll("x", "*");
+                expression = expression.replaceAll("\u00D7", "*");
+                expression = expression.replaceAll("\u00F7", "/");
                 updateAnswer.setText("");
                 if(isValid(expression)) {
                     answer.setTextColor(Color.parseColor("#00008B"));
@@ -193,6 +295,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
     }
+
 
     public static int evaluate(String expression) {
 
