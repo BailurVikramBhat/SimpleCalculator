@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     TextView answer;
 
-    boolean equalButtonPressed;
+    boolean equalButtonPressed, divisionByZero, hadNeg, OneOperator;
 
 
 
@@ -74,6 +74,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         answer = findViewById(R.id.answer);
 
         equalButtonPressed = false;
+        divisionByZero = false;
+        hadNeg = false;
+        OneOperator = false;
 
 
 
@@ -226,12 +229,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             updateAnswer.setText("");
         }
         else if(idGotFrommView == R.id.delete) {
-            if(equalButtonPressed) {
-                updateAnswer.setText(answer.getText().toString());
+
+            if(answer.getText().toString().equals("Can't divide by Zero") || answer.getText().toString().equals("invalid")) {
+                updateAnswer.setText("");
                 answer.setText("");
             }
-            equalButtonPressed = false;
-            if(answer.getText().toString().equals("")) {
+            else if(equalButtonPressed) {
+                updateAnswer.setText(answer.getText().toString());
+                answer.setText("");
+                equalButtonPressed = false;
+            }
+            else if(answer.getText().toString().equals("")) {
                 String cache = updateAnswer.getText().toString();
                 updateAnswer.setText(cache.replaceFirst(".$", ""));
             }
@@ -239,6 +247,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 String cache = answer.getText().toString();
                 answer.setText(cache.replaceFirst(".$", ""));
             }
+
 
         }
         else if(idGotFrommView == R.id.modulus) {
@@ -265,8 +274,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 expression = expression.replaceAll("\u00F7", "/");
                 updateAnswer.setText("");
                 if(isValid(expression)) {
-                    answer.setTextColor(Color.parseColor("#00008B"));
-                    answer.setText(Integer.toString(evaluate(expression)));
+                    int ans = evaluate(expression);
+                    if(divisionByZero) {
+                       answer.setTextColor(Color.parseColor("#FF0000"));
+                       answer.setText("Can't divide by Zero");
+                       divisionByZero = false;
+                    }
+                    else if(hadNeg && OneOperator){
+                        answer.setTextColor(Color.parseColor("#ffff4444"));
+                        answer.setText("-"+Integer.toString(ans));
+                        hadNeg = false;
+                        OneOperator = false;
+                    }
+                    else {
+                        answer.setTextColor(Color.parseColor("#ffff4444"));
+                        answer.setText(Integer.toString(ans));
+                    }
+
+
+
                 }
                 else {
                     answer.setTextColor(Color.parseColor("#FF0000"));
@@ -281,15 +307,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-    public static boolean isValid(String s) {
+
+    public boolean isValid(String s) {
 
         char[] tokens = s.toCharArray();
-
+        int ans = 0;
         String storage = "+-*/%";
+        if(s.length() == 1 && storage.contains(Character.toString(tokens[0]))) return false;
+        for(int i=0; i<tokens.length; i++) {
+            if(tokens[i] == '+' || tokens[i] == '-' || tokens[i] =='*' || tokens[i] == '/' || tokens[i]=='%') ans++;
+        }
+        if(ans==1) OneOperator = true;
         for(int i=0; i<tokens.length-1; i++) {
             if(storage.contains(Character.toString(tokens[i])) && storage.contains(Character.toString(tokens[i+1]))) {
                 return false;
             }
+
         }
         return true;
 
@@ -297,16 +330,38 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
-    public static int evaluate(String expression) {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public int evaluate(String expression) {
 
         // remove leading zeroes from string
         expression = expression.replaceFirst("^0+(?!$)", "");
         char[] tokens = expression.toCharArray();
-
         Stack<Integer> operands = new Stack<>();
         Stack<Character> operators = new Stack<>();
+        if(expression.charAt(0) == '-' && expression.length()>1) {
+            hadNeg = true;
+        }
 
         for(int i=0; i<tokens.length; i++) {
+
+
+
 
             // user can enter spaces through keyboard
             if(tokens[i] == ' ') continue;
@@ -333,7 +388,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 operators.pop();
             }
-            else if(tokens[i] == '+' || tokens[i] =='-' || tokens[i] == '*' || tokens[i] == '/' || tokens[i]=='%') {
+            else if(tokens[i] == '+' || (tokens[i] =='-' && i!=0) || tokens[i] == '*' || tokens[i] == '/' || tokens[i]=='%') {
                 // check operator precedence
                 while(!operators.empty() && hasPrecedence(tokens[i], operators.peek())) {
                     operands.push(performOperation(operators.pop(), operands.pop(), operands.pop()));
@@ -351,7 +406,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
 
-    public static int performOperation(char operator, int operand2, int operand1) {
+    public int performOperation(char operator, int operand2, int operand1) {
 
         /*
 
@@ -370,6 +425,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 return operand1%operand2;
             case '/':
                 if(operand2 == 0) {
+                    divisionByZero = true;
                     return Integer.MIN_VALUE; // how to show Can't divide by zero?
                     // TODO: show can't divide by zero
                 }
@@ -379,7 +435,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return 0;
     }
 
-    public static boolean hasPrecedence(char operator1, char operator2) {
+    public boolean hasPrecedence(char operator1, char operator2) {
 
         if(operator1 == '(' || operator2==')') {
             return false;

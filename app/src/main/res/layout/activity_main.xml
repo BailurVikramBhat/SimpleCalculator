@@ -1,369 +1,300 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/cardview_light_background"
+    android:layout_marginTop="0.5dp"
     tools:context=".MainActivity">
 
 
-    <TextView
-        android:id="@+id/buffer"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="serif"
-        android:text=""
-        android:textAlignment="center"
-        android:maxLines="1"
-        android:ellipsize="start"
-        android:textSize="40sp" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:gravity="center"
+        android:background="@android:color/black"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2">
+
+        <TextView
+            android:id="@+id/editText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:gravity="end"
+            android:textColor="@android:color/holo_red_light"
+            android:textSize="40sp" />
+
+        <TextView
+            android:id="@+id/answer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:gravity="end"
+            android:textColorLink="@android:color/holo_red_light"
+            android:textColor="@android:color/holo_red_light"
+            android:textSize="40sp" />
+
+    </LinearLayout>
 
 
-    <TextView
-        android:id="@+id/editText"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:layout_margin="20sp"
-        android:background="@null"
-        android:layout_below="@id/buffer"
-        android:ellipsize="start"
-        android:fontFamily="monospace"
-        android:gravity="end"
-        android:maxLines="1"
-        android:textColor="@color/black"
-
-
-        android:textSize="40sp" />
-
-    <TextView
-        android:id="@+id/answer"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/editText"
-        android:layout_gravity="end"
-        android:layout_marginStart="20sp"
-        android:layout_marginTop="20sp"
-        android:layout_marginEnd="20sp"
-        android:layout_marginBottom="20sp"
-        android:fontFamily="monospace"
-        android:gravity="end"
-        android:text=""
-        android:textColor="@color/black"
-        android:textSize="40sp" />
 
     <LinearLayout
-        android:id="@+id/firstRow"
-        android:layout_below="@+id/answer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="5sp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/purple_500"
+        android:layout_weight="1"
         android:orientation="horizontal">
 
         <Button
             android:id="@+id/clear"
-            android:backgroundTint="@color/white"
-            android:textColor="@color/black"
-            android:layout_width="wrap_content"
-            android:layout_height="fill_parent"
-            android:padding="4sp"
-            android:layout_margin="5sp"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
+            android:backgroundTint="@color/purple_500"
             android:text="C"
-            android:textSize="40sp"
+            android:textColor="@android:color/holo_red_light"
+            android:textSize="30sp"
             style="?android:attr/buttonBarButtonStyle" />
 
         <Button
             android:id="@+id/modulus"
-            android:backgroundTint="@color/white"
-            android:textColor="@color/black"
-            android:padding="4sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_margin="5sp"
+            android:backgroundTint="@color/purple_500"
             android:text="\u0025"
-            android:textSize="40sp"
+            android:textColor="@android:color/holo_red_light"
+            android:textSize="30sp"
             style="?android:attr/buttonBarButtonStyle" />
 
         <Button
             android:id="@+id/delete"
-            android:backgroundTint="@color/white"
-            android:textColor="@color/black"
-            android:padding="4sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="5sp"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
+            android:backgroundTint="@color/purple_500"
             android:text="\u232B"
-            android:textSize="40sp"
+            android:textColor="@android:color/holo_red_light"
+            android:textSize="30sp"
             style="?android:attr/buttonBarButtonStyle" />
 
         <Button
             android:id="@+id/divide"
-            android:backgroundTint="@color/white"
-            android:textColor="#00008B"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="4sp"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_margin="5sp"
+            android:backgroundTint="@color/purple_500"
             android:text="\u00F7"
+            android:textColor="@android:color/holo_red_light"
             android:textSize="40sp"
             style="?android:attr/buttonBarButtonStyle" />
-
     </LinearLayout>
+
     <LinearLayout
-        android:id="@+id/secondRow"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/firstRow"
-        android:layout_margin="5sp"
-        android:orientation="horizontal">
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/purple_500"
+        android:layout_weight="1">
 
         <Button
             android:id="@+id/button7"
-            android:backgroundTint="@color/white"
-            android:textColor="@color/black"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:padding="4sp"
-            android:layout_margin="5sp"
+            android:backgroundTint="@color/purple_500"
             android:text="7"
-            android:textSize="40sp"
+            android:textColor="@android:color/white"
+            android:textSize="30sp"
             style="?android:attr/buttonBarButtonStyle" />
 
         <Button
             android:id="@+id/button8"
-            android:backgroundTint="@color/white"
-            android:textColor="@color/black"
-            android:layout_width="wrap_content"
-            android:padding="4sp"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:layout_margin="5sp"
+            android:background="@android:color/black"
             android:text="8"
-            android:textSize="40sp"
-            style="?android:attr/buttonBarButtonStyle" />
+            android:textColor="@android:color/white"
+            android:textSize="30sp" />
 
         <Button
             android:id="@+id/button9"
-            android:backgroundTint="@color/white"
-            android:textColor="@color/black"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="4sp"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_margin="5sp"
+            android:backgroundTint="@color/purple_500"
             android:text="9"
-            android:textSize="40sp"
+            android:textColor="@android:color/white"
+            android:textSize="30sp"
             style="?android:attr/buttonBarButtonStyle" />
 
         <Button
             android:id="@+id/multiply"
-            android:backgroundTint="@color/white"
-            android:textColor="#00008B"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_width="wrap_content"
-            android:padding="4sp"
-            android:layout_height="wrap_content"
-            android:layout_margin="5sp"
+            android:backgroundTint="@color/purple_500"
             android:text="\u00D7"
-            android:textSize="40sp"
+            android:textColor="@android:color/holo_red_light"
+            android:textSize="30sp"
             style="?android:attr/buttonBarButtonStyle" />
-
     </LinearLayout>
+
     <LinearLayout
-        android:id="@+id/thirdRow"
-        android:layout_width="400sp"
-        android:layout_height="80sp"
-        android:layout_below="@+id/secondRow"
-        android:layout_margin="5sp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/purple_500"
         android:orientation="horizontal">
 
         <Button
             android:id="@+id/button4"
-            android:backgroundTint="@color/white"
-            android:textColor="@color/black"
-            android:layout_width="wrap_content"
-            android:padding="4sp"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_margin="5sp"
+            android:backgroundTint="@color/purple_500"
             android:text="4"
-            android:textSize="40sp"
+            android:textColor="@android:color/white"
+            android:textSize="30sp"
             style="?android:attr/buttonBarButtonStyle" />
 
         <Button
             android:id="@+id/button5"
-            android:backgroundTint="@color/white"
-            android:textColor="@color/black"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="4sp"
-            android:layout_margin="5sp"
+            android:backgroundTint="@color/purple_500"
             android:text="5"
-            android:textSize="40sp"
+            android:textColor="@android:color/white"
+            android:textSize="30sp"
             style="?android:attr/buttonBarButtonStyle" />
 
         <Button
             android:id="@+id/button6"
-            android:backgroundTint="@color/white"
-            android:textColor="@color/black"
-            android:layout_width="wrap_content"
-            android:padding="4sp"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:layout_margin="5sp"
+            android:backgroundTint="@color/purple_500"
             android:text="6"
-            android:textSize="40sp"
+            android:textColor="@android:color/white"
+            android:textSize="30sp"
             style="?android:attr/buttonBarButtonStyle" />
 
         <Button
             android:id="@+id/subtract"
-            android:backgroundTint="@color/white"
-            android:textColor="#00008B"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="4sp"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_margin="5sp"
-            android:text="\u002D"
+            android:backgroundTint="@color/purple_500"
+            android:text="-"
+            android:textColor="@android:color/holo_red_light"
             android:textSize="40sp"
             style="?android:attr/buttonBarButtonStyle" />
-
     </LinearLayout>
+
     <LinearLayout
-        android:id="@+id/fourthrow"
-        android:layout_width="400sp"
-        android:layout_height="80sp"
-        android:layout_below="@id/thirdRow"
-        android:layout_margin="5sp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/purple_500"
         android:orientation="horizontal">
 
         <Button
             android:id="@+id/button1"
-            android:backgroundTint="@color/white"
-            android:textColor="@color/black"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-
-            android:padding="4sp"
-            android:layout_height="wrap_content"
-            android:layout_margin="5sp"
+            android:backgroundTint="@color/purple_500"
             android:text="1"
-            android:textSize="40sp"
+            android:textColor="@android:color/white"
+            android:textSize="30sp"
             style="?android:attr/buttonBarButtonStyle" />
 
         <Button
             android:id="@+id/button2"
-            android:backgroundTint="@color/white"
-            android:textColor="@color/black"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="4sp"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="0.1dp"
             android:layout_weight="1"
-            android:layout_margin="5sp"
+            android:backgroundTint="@color/purple_500"
             android:text="2"
-            android:textSize="40sp"
+            android:textColor="@android:color/white"
+            android:textSize="30sp"
             style="?android:attr/buttonBarButtonStyle" />
 
         <Button
             android:id="@+id/button3"
-            android:backgroundTint="@color/white"
-            android:textColor="@color/black"
-            android:layout_width="wrap_content"
-            android:padding="4sp"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:layout_margin="5sp"
+            android:backgroundTint="@color/purple_500"
             android:text="3"
-            android:textSize="40sp"
+            android:textColor="@android:color/white"
+            android:textSize="30sp"
             style="?android:attr/buttonBarButtonStyle" />
 
         <Button
             android:id="@+id/add"
-            android:backgroundTint="@color/white"
-            android:textColor="#00008B"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="4sp"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_margin="5sp"
-            android:text="\u002B"
+            android:backgroundTint="@color/purple_500"
+            android:text="+"
+            android:textColor="@android:color/holo_red_light"
             android:textSize="40sp"
             style="?android:attr/buttonBarButtonStyle" />
-
     </LinearLayout>
+
     <LinearLayout
-        android:id="@+id/fifthRow"
-        android:layout_width="400sp"
-        android:layout_height="80sp"
-        android:layout_below="@+id/fourthrow"
-        android:layout_margin="5sp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/purple_500"
         android:orientation="horizontal">
 
         <Button
             android:id="@+id/button0"
-            android:backgroundTint="@color/white"
-            android:textColor="@color/black"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_width="wrap_content"
-            android:padding="4sp"
-            android:layout_height="wrap_content"
-            android:layout_margin="5sp"
+            android:backgroundTint="@color/purple_500"
             android:text="0"
-            android:textSize="40sp"
-            style="?android:attr/buttonBarButtonStyle" />
+            android:textColor="@android:color/white"
+            android:textSize="30sp" />
 
         <Button
             android:id="@+id/button00"
-            android:backgroundTint="@color/white"
-            android:textColor="@color/black"
-            android:layout_width="wrap_content"
-            android:padding="4sp"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_margin="5sp"
+            android:backgroundTint="@color/purple_500"
             android:text="00"
-            android:textSize="40sp"
-            style="?android:attr/buttonBarButtonStyle" />
+            android:textColor="@android:color/white"
+            android:textSize="30sp" />
 
         <Button
             android:id="@+id/buttonPeriod"
-            android:backgroundTint="@color/white"
-            android:textColor="@color/black"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="5sp"
-            android:padding="4sp"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
+            android:backgroundTint="@color/purple_500"
             android:text="."
-            android:textSize="40sp"
-            style="?android:attr/buttonBarButtonStyle" />
+            android:textColor="@android:color/white"
+            android:textSize="30sp" />
 
         <Button
             android:id="@+id/equalTo"
-            android:backgroundTint="@color/white"
-            android:textColor="#00008B"
-            android:layout_width="wrap_content"
-            android:padding="4sp"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_margin="5sp"
-            android:text="\u003D"
-            android:textSize="40sp"
-            style="?android:attr/buttonBarButtonStyle" />
-
+            android:backgroundTint="@color/purple_500"
+            android:padding="0dp"
+            android:text="="
+            android:textColor="@android:color/holo_red_light"
+            android:textSize="40sp" />
     </LinearLayout>
 
 
-
-</RelativeLayout>
+</LinearLayout>
