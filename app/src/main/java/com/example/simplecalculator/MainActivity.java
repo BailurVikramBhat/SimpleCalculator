@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.res.ResourcesCompat;
 
 import java.util.Arrays;
 import java.util.Locale;
@@ -38,6 +39,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        try {
+            this.getSupportActionBar().hide();
+        } catch (NullPointerException e) {
+
+        }
+
+
         numberButtons = new Button[] {
 
                 findViewById(R.id.button0),
@@ -53,6 +61,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         };
         for(Button b: numberButtons) {
+            b.setTypeface(ResourcesCompat.getFont(this, R.font.futura_medium_bt));
             b.setOnClickListener(this);
         }
 
@@ -69,6 +78,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 findViewById(R.id.equalTo)
         };
         for(Button b: operations) {
+            b.setTypeface(ResourcesCompat.getFont(this, R.font.futura_medium_bt));
             b.setOnClickListener(this);
         }
 
@@ -90,6 +100,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
+        Button b = findViewById(view.getId());
         int idGotFrommView = view.getId();
 
         if(idGotFrommView == R.id.button0) {
@@ -237,7 +248,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         else if(idGotFrommView == R.id.delete) {
             hasOpenParanthesis = false;
 
-            if(answer.getText().toString().equals("Can't divide by Zero") || answer.getText().toString().equals("invalid")) {
+            if(answer.getText().toString().equals("Can't divide by Zero")  || answer.getText().toString().equals("Can't find % for doubles") || answer.getText().toString().equals("invalid")) {
                 updateAnswer.setText("");
                 answer.setText("");
             }
@@ -387,7 +398,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     }
                 }
                 operands.push(Double.parseDouble(ans.toString()));
-                System.out.println(operands.peek());
                 i--;
             }
             else if(tokens[i] == '(') {

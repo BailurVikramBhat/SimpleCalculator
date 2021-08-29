@@ -3,8 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/VikramBhat/Documents/AndroidStudioProjects/SimpleCalculator/app/src/main/res/drawable/button_shape.xml" value="0.20925925925925926" />
+        <entry key="..\:/Users/VikramBhat/Documents/AndroidStudioProjects/SimpleCalculator/app/src/main/res/drawable/gray_button.xml" value="0.2703125" />
+        <entry key="..\:/Users/VikramBhat/Documents/AndroidStudioProjects/SimpleCalculator/app/src/main/res/drawable/my_button.xml" value="0.20925925925925926" />
+        <entry key="..\:/Users/VikramBhat/Documents/AndroidStudioProjects/SimpleCalculator/app/src/main/res/drawable/number_button.xml" value="0.2703125" />
         <entry key="..\:/Users/VikramBhat/Documents/AndroidStudioProjects/SimpleCalculator/app/src/main/res/drawable/rounded_button.xml" value="0.2703125" />
-        <entry key="..\:/Users/VikramBhat/Documents/AndroidStudioProjects/SimpleCalculator/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Users/VikramBhat/Documents/AndroidStudioProjects/SimpleCalculator/app/src/main/res/font/alfa_slab_one.xml" value="0.20925925925925926" />
+        <entry key="..\:/Users/VikramBhat/Documents/AndroidStudioProjects/SimpleCalculator/app/src/main/res/layout/activity_main.xml" value="0.1" />
       </map>
     </option>
   </component>
