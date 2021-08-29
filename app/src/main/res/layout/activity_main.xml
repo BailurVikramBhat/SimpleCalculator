@@ -114,10 +114,11 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@android:color/black"
+            android:backgroundTint="@color/purple_500"
             android:text="8"
             android:textColor="@android:color/white"
-            android:textSize="30sp" />
+            android:textSize="30sp"
+            style="?android:attr/buttonBarButtonStyle" />
 
         <Button
             android:id="@+id/button9"
@@ -188,7 +189,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:backgroundTint="@color/purple_500"
-            android:text="-"
+            android:text="\u2212"
             android:textColor="@android:color/holo_red_light"
             android:textSize="40sp"
             style="?android:attr/buttonBarButtonStyle" />
@@ -274,21 +275,21 @@
             android:textColor="@android:color/white"
             android:textSize="30sp" />
 
-        <Button
-            android:id="@+id/buttonPeriod"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:backgroundTint="@color/purple_500"
-            android:text="."
-            android:textColor="@android:color/white"
-            android:textSize="30sp" />
+<!--        <Button-->
+<!--            android:id="@+id/buttonPeriod"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_weight="1"-->
+<!--            android:backgroundTint="@color/purple_500"-->
+<!--            android:text="( )"-->
+<!--            android:textColor="@android:color/white"-->
+<!--            android:textSize="30sp" />-->
 
         <Button
             android:id="@+id/equalTo"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:backgroundTint="@color/purple_500"
             android:padding="0dp"
             android:text="="

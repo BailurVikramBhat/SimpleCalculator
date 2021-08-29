@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     TextView answer;
 
-    boolean equalButtonPressed, divisionByZero, hadNeg, OneOperator;
+    boolean equalButtonPressed, divisionByZero, hadNeg, OneOperator, hasOpenParanthesis;
 
 
 
@@ -61,7 +61,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 findViewById(R.id.modulus),
                 findViewById(R.id.clear),
                 findViewById(R.id.button00),
-                findViewById(R.id.buttonPeriod),
                 findViewById(R.id.delete),
                 findViewById(R.id.equalTo)
         };
@@ -77,6 +76,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         divisionByZero = false;
         hadNeg = false;
         OneOperator = false;
+        hasOpenParanthesis = false;
 
 
 
@@ -175,14 +175,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             equalButtonPressed = false;
             updateAnswer.append("00");
         }
-        else if(idGotFrommView == R.id.buttonPeriod) {
+
+        /*else if(idGotFrommView == R.id.buttonPeriod) {
             if(equalButtonPressed) {
                 updateAnswer.setText(answer.getText().toString());
                 answer.setText("");
+                equalButtonPressed = false;
             }
-            equalButtonPressed = false;
-            updateAnswer.append(".");
-        }
+
+            if(!hasOpenParanthesis) {
+                updateAnswer.append("(");
+                hasOpenParanthesis = true;
+            }
+            else {
+                updateAnswer.append(")");
+                hasOpenParanthesis = false;
+            }
+
+
+        }*/
         else if(idGotFrommView == R.id.add) {
             if(equalButtonPressed) {
                 updateAnswer.setText(answer.getText().toString());
@@ -235,7 +246,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 answer.setText("");
             }
             else if(equalButtonPressed) {
-                updateAnswer.setText(answer.getText().toString());
+                updateAnswer.setText(answer.getText().toString().replaceFirst(".$", ""));
                 answer.setText("");
                 equalButtonPressed = false;
             }
