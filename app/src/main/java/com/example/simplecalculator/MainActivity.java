@@ -188,8 +188,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
             equalButtonPressed = false;
             updateAnswer.append(".");
-
-
         }
         else if(idGotFrommView == R.id.add) {
             if(equalButtonPressed) {
@@ -260,10 +258,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         }
         else if(idGotFrommView == R.id.modulus) {
-
-
-
-
             if(equalButtonPressed) {
                 updateAnswer.setText(answer.getText().toString());
                 answer.setText("%");
@@ -272,34 +266,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             equalButtonPressed = false;
             answer.setText("");
             updateAnswer.append("%");
-
-//
-//            if(!hasOpenParanthesis) {
-//                updateAnswer.append("(");
-//                hasOpenParanthesis = true;
-//            }
-//            else {
-//                updateAnswer.append(")");
-//                hasOpenParanthesis = false;
-//            }
         }
         else if(idGotFrommView == R.id.equalTo) {
             equalButtonPressed = true;
-
-
             String expression = updateAnswer.getText().toString();
             if(expression.isEmpty() || expression.startsWith("invalid")) {
-
                 updateAnswer.setText("");
             }
             else {
-
-
                 expression = expression.replaceAll("\u00D7", "*");
                 expression = expression.replaceAll("\u00F7", "/");
                 updateAnswer.setText("");
                 if(isValid(expression)) {
-//                    int ans = evaluate(expression);
                     Double doubleans = eval(expression);
                     if(divisionByZero) {
                        answer.setTextColor(Color.parseColor("#FF0000"));
@@ -310,11 +288,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         answer.setTextColor(Color.parseColor("#FF0000"));
                         answer.setText("Can't find % for doubles");
                         doubleRem = false;
-
                     }
                     else {
                         answer.setTextColor(Color.parseColor("#ffff4444"));
-//                        answer.setText(Integer.toString(ans));
                         if(doubleans == Math.floor(doubleans)) {
                             answer.setText(String.format(Locale.US, "%.0f", doubleans));
                         }
@@ -322,9 +298,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             answer.setText(Double.toString(doubleans));
                         }
                     }
-
-
-
                 }
                 else {
                     answer.setTextColor(Color.parseColor("#FF0000"));
@@ -333,10 +306,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             }
         }
-
-
-
-
     }
 
 
@@ -364,26 +333,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-
-
-
     int order(char operator) {
         if(operator == '+' || operator == '-') {
             return 1;
         }
-        if(operator == '*'  || operator == '/') {
+        if(operator == '*'  || operator == '/' || operator == '%') {
             return 2;
         }
         return 0;
     }
 
     double calculation(double op2, char op, double op1) {
-        if(op == '-') return op1 - op2;  //last out - first out eg. "3-2", 3 will be first in. then 2 in
+        if(op == '-') return op1 - op2;
         if(op == '+') return op1 + op2;
         if(op == '*') return op1 * op2;
         if(op == '%') {
             if(op1 == Math.floor(op1) && op2 == Math.floor(op2)) {
-
                 return op1%op2;
             }
             else doubleRem = true;
@@ -401,32 +366,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     double eval(String expression) {
         int len = expression.length();
         char[] tokens = expression.toCharArray();
-        System.out.println(Arrays.toString(tokens));
         Stack<Double> operands = new Stack<>();
         Stack<Character> operator = new Stack<>();
         for(int i=0; i<len; i++) {
-            System.out.println("New iteration");
             if(tokens[i] == ' ') {
                 continue;
             }
             else if(Character.isDigit(tokens[i])) {
                 StringBuilder ans = new StringBuilder();
                 while(i<len && (Character.isDigit(tokens[i]))) {
-                    System.out.println("Evaluating: "+tokens[i]+" i value is "+i);
                     ans.append(tokens[i]);
                     i++;
                 }
                 if(i<len && tokens[i] == '.') {
                     i++;
-                    System.out.println("Found dot");
                     ans.append(".");
                     while(i<len && Character.isDigit(tokens[i])) {
-                        System.out.println("Evaluating: "+tokens[i]+" i value is "+i);
                         ans.append(tokens[i]);
                         i++;
                     }
                 }
-                System.out.println("ans: "+ans.toString());
                 operands.push(Double.parseDouble(ans.toString()));
                 System.out.println(operands.peek());
                 i--;
@@ -487,109 +446,4 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return operands.peek();
     }
 
-
-
-
-
-
-
-
-
-
-
-    public int evaluate(String expression) {
-
-        // remove leading zeroes from string
-        expression = expression.replaceFirst("^0+(?!$)", "");
-        char[] tokens = expression.toCharArray();
-        Stack<Integer> operands = new Stack<>();
-        Stack<Character> operators = new Stack<>();
-        if(expression.charAt(0) == '-' && expression.length()>1) {
-            hadNeg = true;
-        }
-
-        for(int i=0; i<tokens.length; i++) {
-
-
-
-
-            // user can enter spaces through keyboard
-            if(tokens[i] == ' ') continue;
-
-            if(tokens[i]>='0' && tokens[i]<='9') {
-
-                StringBuilder moreThanOneDigitNumber = new StringBuilder();
-
-                while(i<tokens.length && tokens[i]>='0' && tokens[i]<='9') {
-                    moreThanOneDigitNumber.append(tokens[i++]);
-                }
-
-                operands.push(Integer.parseInt(moreThanOneDigitNumber.toString()));
-
-                i--; // as we did i++ as index, we need to come back one step back for next iteration
-            }
-
-            else if(tokens[i] == '(') {
-                operators.push(tokens[i]); // we don't care opening parantheses
-            }
-            else if(tokens[i] == ')') {
-                while(operators.peek()!='(') {
-                    operands.push(performOperation(operators.pop(), operands.pop(), operands.pop()));
-                }
-                operators.pop();
-            }
-            else if(tokens[i] == '+' || (tokens[i] =='-' && i!=0) || tokens[i] == '*' || tokens[i] == '/' || tokens[i]=='%') {
-                // check operator precedence
-                while(!operators.empty() && hasPrecedence(tokens[i], operators.peek())) {
-                    operands.push(performOperation(operators.pop(), operands.pop(), operands.pop()));
-                }
-                // push the current operator
-                operators.push(tokens[i]);
-            }
-        }
-        // we parsed full expression: YAY!
-        while(!operators.empty()) {
-            operands.push(performOperation(operators.pop(), operands.pop(), operands.pop()));
-        }
-        return operands.pop(); // has the final ans
-    }
-
-
-
-    public int performOperation(char operator, int operand2, int operand1) {
-
-        /*
-
-        TODO : If input expression is: 10 + - 5
-        it should show invalid. It is crashing. How to do?
-        * */
-
-        switch(operator) {
-            case '+':
-                return operand1+operand2;
-            case '-':
-                return operand1-operand2;
-            case '*':
-                return operand1*operand2;
-            case '%':
-                return operand1%operand2;
-            case '/':
-                if(operand2 == 0) {
-                    divisionByZero = true;
-                    return Integer.MIN_VALUE; // how to show Can't divide by zero?
-                    // TODO: show can't divide by zero
-                }
-                return operand1/operand2;
-
-        }
-        return 0;
-    }
-
-    public boolean hasPrecedence(char operator1, char operator2) {
-
-        if(operator1 == '(' || operator2==')') {
-            return false;
-        }
-        return (operator1 != '*' && operator1 != '/' && operator1!='%') || (operator2 != '+' && operator2 != '-');
-    }
 }
