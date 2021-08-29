@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:layout_marginTop="0.5dp"
+    android:layout_margin="0dp"
     tools:context=".MainActivity">
 
 
@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:gravity="end"
-            android:textColor="@android:color/holo_red_light"
+            android:textColor="#fe9500"
             android:textSize="40sp" />
 
         <TextView
@@ -32,8 +32,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:gravity="end"
-            android:textColorLink="@android:color/holo_red_light"
-            android:textColor="@android:color/holo_red_light"
+            android:textColorLink="#fe9500"
+            android:textColor="#fe9500"
             android:textSize="40sp" />
 
     </LinearLayout>
@@ -43,7 +43,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="@color/purple_500"
+        android:background="#323232"
         android:layout_weight="1"
         android:orientation="horizontal">
 
@@ -52,9 +52,9 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:backgroundTint="@color/purple_500"
+            android:backgroundTint="#323232"
             android:text="C"
-            android:textColor="@android:color/holo_red_light"
+            android:textColor="#fe9500"
             android:textSize="30sp"
             style="?android:attr/buttonBarButtonStyle" />
 
@@ -63,9 +63,9 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:backgroundTint="@color/purple_500"
+            android:backgroundTint="#323232"
             android:text="%"
-            android:textColor="@android:color/holo_red_light"
+            android:textColor="#fe9500"
             android:textSize="30sp"
             style="?android:attr/buttonBarButtonStyle" />
 
@@ -74,9 +74,9 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:backgroundTint="@color/purple_500"
+            android:backgroundTint="#323232"
             android:text="\u232B"
-            android:textColor="@android:color/holo_red_light"
+            android:textColor="#fe9500"
             android:textSize="30sp"
             style="?android:attr/buttonBarButtonStyle" />
 
@@ -85,9 +85,9 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:backgroundTint="@color/purple_500"
+            android:backgroundTint="#323232"
             android:text="\u00F7"
-            android:textColor="@android:color/holo_red_light"
+            android:textColor="#fe9500"
             android:textSize="40sp"
             style="?android:attr/buttonBarButtonStyle" />
     </LinearLayout>
@@ -95,7 +95,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="@color/purple_500"
+        android:background="#323232"
         android:layout_weight="1">
 
         <Button
@@ -103,9 +103,9 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:backgroundTint="@color/purple_500"
+            android:backgroundTint="#323232"
             android:text="7"
-            android:textColor="@android:color/white"
+            android:textColor="@color/white"
             android:textSize="30sp"
             style="?android:attr/buttonBarButtonStyle" />
 
@@ -114,7 +114,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:backgroundTint="@color/purple_500"
+            android:backgroundTint="#323232"
             android:text="8"
             android:textColor="@android:color/white"
             android:textSize="30sp"
@@ -125,7 +125,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:backgroundTint="@color/purple_500"
+            android:backgroundTint="#323232"
             android:text="9"
             android:textColor="@android:color/white"
             android:textSize="30sp"
@@ -136,9 +136,9 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:backgroundTint="@color/purple_500"
+            android:backgroundTint="#323232"
             android:text="\u00D7"
-            android:textColor="@android:color/holo_red_light"
+            android:textColor="#fe9500"
             android:textSize="30sp"
             style="?android:attr/buttonBarButtonStyle" />
     </LinearLayout>
@@ -147,7 +147,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="@color/purple_500"
+        android:background="#323232"
         android:orientation="horizontal">
 
         <Button
@@ -155,7 +155,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:backgroundTint="@color/purple_500"
+            android:backgroundTint="#323232"
             android:text="4"
             android:textColor="@android:color/white"
             android:textSize="30sp"
@@ -166,7 +166,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:backgroundTint="@color/purple_500"
+            android:backgroundTint="#323232"
             android:text="5"
             android:textColor="@android:color/white"
             android:textSize="30sp"
@@ -177,7 +177,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:backgroundTint="@color/purple_500"
+            android:backgroundTint="#323232"
             android:text="6"
             android:textColor="@android:color/white"
             android:textSize="30sp"
@@ -187,10 +187,11 @@
             android:id="@+id/subtract"
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:padding="0dp"
             android:layout_weight="1"
-            android:backgroundTint="@color/purple_500"
+            android:backgroundTint="#323232"
             android:text="\u2212"
-            android:textColor="@android:color/holo_red_light"
+            android:textColor="#fe9500"
             android:textSize="40sp"
             style="?android:attr/buttonBarButtonStyle" />
     </LinearLayout>
@@ -199,7 +200,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="@color/purple_500"
+        android:background="#323232"
         android:orientation="horizontal">
 
         <Button
@@ -207,7 +208,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:backgroundTint="@color/purple_500"
+            android:backgroundTint="#323232"
             android:text="1"
             android:textColor="@android:color/white"
             android:textSize="30sp"
@@ -219,7 +220,7 @@
             android:layout_height="match_parent"
             android:layout_marginTop="0.1dp"
             android:layout_weight="1"
-            android:backgroundTint="@color/purple_500"
+            android:backgroundTint="#323232"
             android:text="2"
             android:textColor="@android:color/white"
             android:textSize="30sp"
@@ -230,20 +231,22 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:backgroundTint="@color/purple_500"
+            android:backgroundTint="#323232"
             android:text="3"
             android:textColor="@android:color/white"
             android:textSize="30sp"
             style="?android:attr/buttonBarButtonStyle" />
 
         <Button
+
             android:id="@+id/add"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:backgroundTint="@color/purple_500"
+            android:backgroundTint = "#323232"
+
             android:text="+"
-            android:textColor="@android:color/holo_red_light"
+            android:textColor="#fe9500"
             android:textSize="40sp"
             style="?android:attr/buttonBarButtonStyle" />
     </LinearLayout>
@@ -252,7 +255,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="@color/purple_500"
+        android:background="#323232"
         android:orientation="horizontal">
 
         <Button
@@ -260,27 +263,29 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:backgroundTint="@color/purple_500"
+            android:backgroundTint="#323232"
             android:text="0"
             android:textColor="@android:color/white"
-            android:textSize="30sp" />
+            android:textSize="30sp"
+            style="?android:attr/buttonBarButtonStyle" />
 
         <Button
             android:id="@+id/button00"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:backgroundTint="@color/purple_500"
+            android:backgroundTint="#323232"
             android:text="00"
             android:textColor="@android:color/white"
-            android:textSize="30sp" />
+            android:textSize="30sp"
+            style="?android:attr/buttonBarButtonStyle" />
 
         <Button
             android:id="@+id/buttonPeriod"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:backgroundTint="@color/purple_500"
+            android:backgroundTint="#323232"
             android:text="."
             android:textColor="@android:color/white"
             android:textSize="30sp"
@@ -291,10 +296,11 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:backgroundTint="@color/purple_500"
+            android:backgroundTint="#fe9500"
+            android:layout_margin="@dimen/cardview_default_radius"
             android:padding="0dp"
             android:text="="
-            android:textColor="@android:color/holo_red_light"
+            android:textColor="#323232"
             android:textSize="40sp" />
     </LinearLayout>
 

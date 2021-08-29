@@ -290,7 +290,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         doubleRem = false;
                     }
                     else {
-                        answer.setTextColor(Color.parseColor("#ffff4444"));
+                        answer.setTextColor(Color.parseColor("#fe9500"));
                         if(doubleans == Math.floor(doubleans)) {
                             answer.setText(String.format(Locale.US, "%.0f", doubleans));
                         }
