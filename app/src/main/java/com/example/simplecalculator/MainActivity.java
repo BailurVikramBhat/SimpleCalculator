@@ -9,6 +9,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Stack;
+import java.util.regex.Pattern;
 
 /**
  * @author Vikram Bhat
@@ -324,6 +325,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         char[] tokens = s.toCharArray();
         int ans = 0;
         String storage = "+-*/%";
+        if(!Pattern.matches("-?\\d+([-+*%/]-?\\d+)*", s)) {
+            return false;
+        }
         if(s.length() == 1 && storage.contains(Character.toString(tokens[0]))) return false;
         for(int i=0; i<tokens.length; i++) {
             if(tokens[i] == '+' || tokens[i] == '-' || tokens[i] =='*' || tokens[i] == '/' || tokens[i]=='%') ans++;
